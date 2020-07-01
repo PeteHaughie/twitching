@@ -78,7 +78,7 @@ window.addEventListener("load", function(){
         track.stop();
       });
     }
-    const videoSource = videoSelect.value;
+    const videoSource = videoSelect.value || JSON.parse(localStorage.getItem("videoSource"));
     localStorage.setItem("videoSource", JSON.stringify(videoSource))
     const constraints = {
       video: {
@@ -105,7 +105,7 @@ window.addEventListener("load", function(){
         track.stop();
       });
     }
-    const camSource = camSelect.value;
+    const camSource = camSelect.value || JSON.parse(localStorage.getItem("camSource"));
     localStorage.setItem("camSource", JSON.stringify(camSource))
     const constraints = {
       video: {
@@ -135,24 +135,26 @@ window.addEventListener("load", function(){
       const el = localStorage.key(i);
       const element = document.getElementById(el);
       const props = JSON.parse(localStorage.getItem(el));
-      if (props.opacity) {
-        element.style.opacity = null;
-      }
-      element.style.opacity = props.opacity;
-      if (props.hposition) {
-        if (props.hposition == "left") {
-          element.classList.remove("right")
+      if (props) {
+        if (props.opacity) {
+          element.style.opacity = null;
         }
-        if (props.hposition == "right") {
-          element.classList.add("right")
+        element.style.opacity = props.opacity;
+        if (props.hposition) {
+          if (props.hposition == "left") {
+            element.classList.remove("right")
+          }
+          if (props.hposition == "right") {
+            element.classList.add("right")
+          }
         }
-      }
-      if (props.vposition) {
-        if (props.vposition == "top") {
-          element.classList.remove("bottom")
-        }
-        if (props.vposition == "bottom") {
-          element.classList.add("bottom")
+        if (props.vposition) {
+          if (props.vposition == "top") {
+            element.classList.remove("bottom")
+          }
+          if (props.vposition == "bottom") {
+            element.classList.add("bottom")
+          }
         }
       }
     }
