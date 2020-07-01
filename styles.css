@@ -29,7 +29,7 @@ body {
 }
 
 #interstitial {
-  background: url('/assets/hexadventure.gif') center left repeat;
+  background: url('assets/hexadventure.gif') center left repeat;
   height: 100vh;
   left: 0;
   opacity: 1;
@@ -40,7 +40,7 @@ body {
 }
 
 #interstitial.hail {
-  background: url('/assets/hail.gif') center center 0 repeat;
+  background: url('assets/hail.gif') center center 0 repeat;
 }
 
 video {
@@ -99,7 +99,7 @@ video {
 }
 
 #topCamContainer #decoration {
-  background: url("/assets/bloodbar.gif") top center no-repeat;
+  background: url("assets/bloodbar.gif") top center no-repeat;
   bottom: -100px;
   width: 100%;
   opacity: 0;
