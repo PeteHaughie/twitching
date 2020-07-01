@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <form id="control">
+      <fieldset>
+        <legend>Interstitial</legend>
+        <button data-element="interstitial" data-action="opacity">Show/Hide</button>
+        <p>Available styles:</p>
+        <ul id="styles">
+          <li><a href="#" data-image="hexadventure.gif">HexAdventure Tiled</a></li>
+          <li><a href="#" data-image="hail.gif">Grimmware "Hail" Tiled</a></li>
+        </ul>
+      </fieldset>
+      <fieldset>
+        <legend>Float Cam</legend>
+        <button data-element="topCamContainer" data-action="opacity">Show/Hide</button>
+        <h3><label>Decoration</label></h3>
+        <button data-element="decoration" data-action="opacity">Show/Hide</button>
+        <div>
+          <h3><label>Position</label></h3>
+          <button data-element="topCamContainer" data-action="hposition" data-direction="left">Left</button>
+          <button data-element="topCamContainer" data-action="hposition" data-direction="right">Right</button>
+          <button data-element="topCamContainer" data-action="vposition" data-direction="top">Top</button>
+          <button data-element="topCamContainer" data-action="vposition" data-direction="bottom">Bottom</button>
+        </div>
+        <div>
+          <!-- experimental -->
+          <button data-element="topCamContainer" data-action="dposition" data-direction="top-left">Top Left</button>
+          <button data-element="topCamContainer" data-action="dposition" data-direction="top-right">Top Right</button>
+          <button data-element="topCamContainer" data-action="dposition" data-direction="bottom-left">Bottom Left</button>
+          <button data-element="topCamContainer" data-action="dposition" data-direction="bottom-right">Bottom Right</button>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Camera Controls</legend>
+        <button data-element="select" data-action="opacity">Show/Hide</button>
+      </fieldset>
+    </form>
+  </body>
+</html>
