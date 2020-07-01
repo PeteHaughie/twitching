@@ -156,7 +156,7 @@ window.addEventListener("load", function(){
         }
         element.style.opacity = props.opacity;
         if (props.image) {
-          element.style.backgroundImage = "url(/assets/" + props.image + ")";
+          element.style.backgroundImage = "url(assets/" + props.image + ")";
         } else {
           element.style.backgroundImage = null;
         }
