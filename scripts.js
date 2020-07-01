@@ -16,8 +16,6 @@ window.addEventListener("load", function(){
   const selectors = [videoSelect, camSelect];
 
   const props = localStorage;
-  const camSource = props.camSource;
-  const videoSource = props.videoSource;
 
   function gotDevices(deviceInfos) {
     // Handles being called several times to update labels. Preserve values.
@@ -130,16 +128,38 @@ window.addEventListener("load", function(){
   startCam();
 
   // localStorage trawling
+  let prevCamSource = JSON.parse(localStorage.getItem("camSource"));
+  let prevVideoSource = JSON.parse(localStorage.getItem("videoSource"));
+
   setInterval(function(){
     for (let i = 0; i < localStorage.length; i++) {
       const el = localStorage.key(i);
       const element = document.getElementById(el);
       const props = JSON.parse(localStorage.getItem(el));
+      if (el == "videoSource") {
+        if (JSON.parse(localStorage.getItem(el)) != prevVideoSource) {
+          // console.log("video prop has changed")
+          prevVideoSource = JSON.parse(localStorage.getItem(el));
+          startVideo;
+        }
+      }
+      if (el == "camSource") {
+        if (JSON.parse(localStorage.getItem(el)) != prevCamSource) {
+          // console.log("cam prop has changed")
+          prevCamSource = JSON.parse(localStorage.getItem(el));
+          startCam;
+        }
+      }
       if (props) {
         if (props.opacity) {
           element.style.opacity = null;
         }
         element.style.opacity = props.opacity;
+        if (props.image) {
+          element.style.backgroundImage = "url(/assets/" + props.image + ")";
+        } else {
+          element.style.backgroundImage = null;
+        }
         if (props.hposition) {
           if (props.hposition == "left") {
             element.classList.remove("right")

@@ -15,10 +15,13 @@
           <li><a href="#" data-image="hexadventure.gif">HexAdventure Tiled</a></li>
           <li><a href="#" data-image="hail.gif">Grimmware "Hail" Tiled</a></li>
         </ul>
+        <button data-element="interstitial" data-action="clearTheme">Clear</button>
       </fieldset>
       <fieldset>
         <legend>Float Cam</legend>
         <button data-element="topCamContainer" data-action="opacity">Show/Hide</button>
+        <h3><label>Source</label></h3>
+        <select id="camSource"></select>
         <h3><label>Decoration</label></h3>
         <button data-element="decoration" data-action="opacity">Show/Hide</button>
         <div>
@@ -35,6 +38,11 @@
           <button data-element="topCamContainer" data-action="dposition" data-direction="bottom-left">Bottom Left</button>
           <button data-element="topCamContainer" data-action="dposition" data-direction="bottom-right">Bottom Right</button>
         </div>
+      </fieldset>
+      <fieldset>
+        <legend>Main Stage</legend>
+        <h3><label>Source</label></h3>
+        <select id="videoSource"></select>
       </fieldset>
       <fieldset>
         <legend>Camera Controls</legend>
