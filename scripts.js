@@ -106,9 +106,11 @@ window.addEventListener("load", function(){
           startCam();
         }
       }
-      if (props) {
-        element.style.opacity = null || props.opacity;
-
+      if (element && props) {
+        if (props.opacity)
+          element.classList.remove('invisible')
+        else
+          element.classList.add('invisible')
         if (props.image) {
           element.style.backgroundImage = "url(assets/" + props.image + ")";
         } else {
