@@ -55,14 +55,18 @@ window.addEventListener("load", function() {
         delete props.image
       if (this.dataset.action == "opacity")
         props.opacity == 0 ? props.opacity = 1 : props.opacity = 0
+
+      // directional values
       if (this.dataset.action == "hposition")
         props.hposition = this.dataset.direction;
       if (this.dataset.action == "vposition")
         props.vposition = this.dataset.direction;
       if (this.dataset.action == "dposition") {
-        props.vposition = this.dataset.direction.split("-")[0]
-        props.hposition = this.dataset.direction.split("-")[1]
+        const posArray = this.dataset.direction.split("-")
+        props.vposition = posArray[0]
+        props.hposition = posArray[1]
       }
+
       localStorage.setItem(element, JSON.stringify(props))
     })
   }
