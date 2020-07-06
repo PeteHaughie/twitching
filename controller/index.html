@@ -7,23 +7,32 @@
   </head>
   <body>
     <form id="control">
+
       <fieldset>
         <legend>Interstitial</legend>
         <button data-element="interstitial" data-action="opacity">Show/Hide</button>
         <p>Available styles:</p>
-        <ul id="styles">
+        <ul id="interstitial">
           <li>HexAdventure Tiled - Default if cleared</li>
           <li><a href="#" data-image="hail.gif">Grimmware "Hail" Tiled</a></li>
         </ul>
         <button data-element="interstitial" data-action="clearTheme">Clear</button>
       </fieldset>
+
       <fieldset>
         <legend>Float Cam</legend>
         <button data-element="topCamContainer" data-action="opacity">Show/Hide</button>
         <h3><label>Source</label></h3>
-        <select id="camSource"></select>
+        <select id="camSource">
+          <option>Select a source</option>
+        </select>
         <h3><label>Decoration</label></h3>
         <button data-element="decoration" data-action="opacity">Show/Hide</button>
+        <ul id="decoration">
+          <li><a href="#" data-style="bloodbar">Bloodbar</a></li>
+          <li><a href="#" data-style="skull">Skull</a></li>
+          <li><a href="#" data-style="ufo">UFO</a></li>
+        </ul>
         <div>
           <h3><label>Position</label></h3>
           <button data-element="topCamContainer" data-action="hposition" data-direction="left">Left</button>
@@ -39,11 +48,15 @@
           <button data-element="topCamContainer" data-action="dposition" data-direction="bottom-right">Bottom Right</button>
         </div>
       </fieldset>
+
       <fieldset>
         <legend>Main Stage</legend>
         <h3><label>Source</label></h3>
-        <select id="videoSource"></select>
+        <select id="videoSource">
+          <option>Select a source</option>
+        </select>
       </fieldset>
+
     </form>
   </body>
 </html>

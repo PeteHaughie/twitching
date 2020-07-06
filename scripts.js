@@ -134,7 +134,19 @@ window.addEventListener("load", function(){
             element.classList.add("bottom")
           }
         }
+
+        if (props.decoration) {
+          if (!element.classList.contains(props.decoration)) {
+            element.classList.add("invisible")
+            setTimeout(function() {
+              element.classList.remove(...element.classList);
+            }, 300);
+            setTimeout(function() {
+              element.classList.add(props.decoration)
+            }, 300);
+          }
+        }
       }
     }
-  }, 500);
+  }, 300);
 });

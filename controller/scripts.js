@@ -35,13 +35,23 @@ window.addEventListener("load", function() {
     console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
   }
 
-  const styles = document.getElementById('styles').getElementsByTagName("a");
-  for (const style of styles) {
-    style.addEventListener('click', function(e){
+  const interstitials = document.getElementById('interstitial').getElementsByTagName("a");
+  for (const interstitial of interstitials) {
+    interstitial.addEventListener('click', function(e){
       e.preventDefault();
       const props = JSON.parse(localStorage.getItem("interstitial"));
       props.image = this.dataset.image;
       localStorage.setItem("interstitial", JSON.stringify(props))
+    });
+  }
+
+  const decorations = document.getElementById('decoration').getElementsByTagName("a");
+  for (const decoration of decorations) {
+    decoration.addEventListener('click', function(e){
+      e.preventDefault();
+      const props = JSON.parse(localStorage.getItem("decoration"));
+      props.decoration = this.dataset.style;
+      localStorage.setItem("decoration", JSON.stringify(props))
     });
   }
 
