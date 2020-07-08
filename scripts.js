@@ -146,7 +146,14 @@ window.addEventListener("load", function(){
             }, 300);
           }
         }
+
+        // if (el == "topCamContainer" && props.width) {
+        //   element.classList.add(props.width)
+        // } else if (el == "topCamContainer") {
+        //   element.classList.remove("cropped");
+        // }
+
       }
     }
-  }, 300);
+  }, 333);
 });

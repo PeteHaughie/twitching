@@ -21,11 +21,15 @@
 
       <fieldset>
         <legend>Float Cam</legend>
-        <button data-element="topCamContainer" data-action="opacity">Show/Hide</button>
-        <h3><label>Source</label></h3>
+        <h3><label for="topCamContainer">Display</label></h3>
+        <button id="topCamContainer" data-element="topCamContainer" data-action="opacity">Show/Hide</button>
+        <h3><label for="camSource">Source</label></h3>
         <select id="camSource">
           <option>Select a source</option>
         </select>
+        <h3><label>Width</label></h3>
+        <button id="width" data-element="topCamContainer" data-action="width">Full/Cropped</button>
+        
         <h3><label>Decoration</label></h3>
         <button data-element="decoration" data-action="opacity">Show/Hide</button>
         <ul id="decoration">
@@ -41,7 +45,6 @@
           <button data-element="topCamContainer" data-action="vposition" data-direction="bottom">Bottom</button>
         </div>
         <div>
-          <!-- experimental -->
           <button data-element="topCamContainer" data-action="dposition" data-direction="top-left">Top Left</button>
           <button data-element="topCamContainer" data-action="dposition" data-direction="top-right">Top Right</button>
           <button data-element="topCamContainer" data-action="dposition" data-direction="bottom-left">Bottom Left</button>

@@ -66,6 +66,9 @@ window.addEventListener("load", function() {
       if (this.dataset.action == "opacity")
         props.opacity == 0 ? props.opacity = 1 : props.opacity = 0
 
+      if (this.dataset.action == "width")
+        console.log(element, "data action is width")
+        props.width == "cropped" ? delete props.width : props.width = "cropped"
       // directional values
       if (this.dataset.action == "hposition")
         props.hposition = this.dataset.direction;

@@ -1,6 +1,6 @@
 * {
-  transition: bottom ease-in-out .3s,
-              border ease-in-out .3s,
+  transition: border ease-in-out .3s,
+              bottom ease-in-out .3s,
               left ease-in-out .3s,
               opacity ease-in-out .3s,
               right ease-in-out .3s,
@@ -9,6 +9,10 @@
 
 #topCamContainer {
   transition: height ease-in-out .3s,
+              top ease-in-out .3s,
+              right ease-in-out .3s,
+              bottom ease-in-out .3s,
+              left ease-in-out .3s,
               width ease-in-out .3s;
 }
 
@@ -88,7 +92,7 @@ video {
   height: 150px;
   left: 50px;
   position: absolute;
-  top: 30px;
+  top: 50px;
   /*
   to make this to the right it needs to be `calc(100vw - (offset + width))` but, y'know, calculated previously
   probably something along the lines of window.width - (document.getElementById("topCamContainer").offsetWidth + document.getElementById("topCamContainer").getBoundingClientRect().left)
