@@ -71,7 +71,7 @@ body {
   background: url('assets/redshift.gif') center center repeat;
 }
 
-video {
+canvas {
   position: absolute;
 }
 
@@ -99,7 +99,7 @@ video {
   }
 }
 
-#video1 {
+#canvas1 {
   height: 100vh;
   width: 100vw;
   z-index: 1;
@@ -167,7 +167,7 @@ video {
   top: -40px;
 }
 
-#video2 {
+#canvas2 {
   height: 150px;
   margin-left: -65px;
   width: 300px;

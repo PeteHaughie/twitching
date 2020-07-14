@@ -9,16 +9,43 @@
 'use strict';
 
 window.addEventListener("load", function(){
-  const videoElement = document.getElementById('video1');
-  const camElement = document.getElementById('video2');
+  const videoElement = document.createElement('video');
+        videoElement.setAttribute('playsinline', true);
+        videoElement.setAttribute('autoplay', true);
+        videoElement.setAttribute('width', 1280);
+        videoElement.setAttribute('height', 720);
+  const camElement = document.createElement('video');
+        camElement.setAttribute('playsinline', true);
+        camElement.setAttribute('autoplay', true);
+        camElement.setAttribute('width', 300);
+        camElement.setAttribute('height', 150);
+
+  const videoCanvas = document.getElementById('canvas1');
+        videoCanvas.setAttribute('width', 1280);
+        videoCanvas.setAttribute('height', 720);
+  const camCanvas = document.getElementById('canvas2');
+        camCanvas.setAttribute('width', 300);
+        camCanvas.setAttribute('height', 150);
+
+  const videoContext = videoCanvas.getContext('2d');
+  const camContext = camCanvas.getContext('2d');
 
   const props = localStorage;
 
   navigator.mediaDevices.enumerateDevices().catch(handleError);
 
+  function updateCanvas(canvas, video) {
+    setInterval(() => {
+      canvas.drawImage(video, 0, 0, video.width, video.height);
+    }, 30);
+  }
+
   function gotStream(stream) {
     window.stream = stream; // make stream available to console
     videoElement.srcObject = stream;
+    videoElement.addEventListener('play', function(){
+      updateCanvas(videoContext, videoElement);
+    });
     // Refresh button list in case labels have become available
     return navigator.mediaDevices.enumerateDevices();
   }
@@ -26,6 +53,9 @@ window.addEventListener("load", function(){
   function gotCam(stream) {
     window.cam = stream; // make stream available to console
     camElement.srcObject = stream;
+    camElement.addEventListener('play', function() {
+      updateCanvas(camContext, camElement);
+    });
     // Refresh button list in case labels have become available
     return navigator.mediaDevices.enumerateDevices();
   }
