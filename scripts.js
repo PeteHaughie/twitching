@@ -108,13 +108,12 @@ window.addEventListener("load", function(){
       }
       if (element && props) {
         if (props.opacity)
-          element.classList.remove('invisible')
+          element.classList.remove("invisible");
         else
-          element.classList.add('invisible')
-        if (props.image) {
-          element.style.backgroundImage = "url(assets/" + props.image + ")";
-        } else {
-          element.style.backgroundImage = null;
+          element.classList.add("invisible");
+
+        if (props.style) {
+          element.classList.add(props.style);
         }
 
         if (props.hposition) {
@@ -139,7 +138,7 @@ window.addEventListener("load", function(){
           if (!element.classList.contains(props.decoration)) {
             element.classList.add("invisible")
             setTimeout(function() {
-              element.classList.remove(...element.classList);
+              element.classList = "";
             }, 300);
             setTimeout(function() {
               element.classList.add(props.decoration)

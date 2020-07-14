@@ -40,7 +40,7 @@ window.addEventListener("load", function() {
     interstitial.addEventListener('click', function(e){
       e.preventDefault();
       const props = JSON.parse(localStorage.getItem("interstitial"));
-      props.image = this.dataset.image;
+      props.style = this.dataset.style;
       localStorage.setItem("interstitial", JSON.stringify(props))
     });
   }
@@ -62,13 +62,13 @@ window.addEventListener("load", function() {
       const element = this.dataset.element;
       const props = JSON.parse(localStorage.getItem(element)) || {}
       if (this.dataset.action == "clearTheme")
-        delete props.image
+        delete props.style
       if (this.dataset.action == "opacity")
         props.opacity == 0 ? props.opacity = 1 : props.opacity = 0
 
-      if (this.dataset.action == "width")
-        console.log(element, "data action is width")
-        props.width == "cropped" ? delete props.width : props.width = "cropped"
+      // if (this.dataset.action == "width")
+      //   console.log(element, "data action is width")
+      //   props.width == "cropped" ? delete props.width : props.width = "cropped"
       // directional values
       if (this.dataset.action == "hposition")
         props.hposition = this.dataset.direction;

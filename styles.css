@@ -13,6 +13,7 @@
               right ease-in-out .3s,
               bottom ease-in-out .3s,
               left ease-in-out .3s,
+              opacity ease-in-out .3s,
               width ease-in-out .3s;
 }
 
@@ -47,7 +48,27 @@ body {
 }
 
 #interstitial.hail {
-  background: url('assets/hail.gif') center center 0 repeat;
+  background: url('assets/hail.gif') center center repeat;
+}
+
+#interstitial.roll {
+  background: url('assets/roll.gif') center center repeat;
+}
+
+#interstitial.wave {
+  background: url('assets/wave.gif') center center repeat;
+}
+
+#interstitial.bilatphase {
+  background: url('assets/bilatphase.gif') center center repeat;
+}
+
+#interstitial.acidrgb {
+  background: url('assets/acidrgb.gif') center center repeat;
+}
+
+#interstitial.redshift {
+  background: url('assets/redshift.gif') center center repeat;
 }
 
 video {
