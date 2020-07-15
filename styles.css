@@ -101,6 +101,8 @@ canvas {
 
 #canvas1 {
   height: 100vh;
+  min-height: 720px;
+  min-width: 1280px;
   width: 100vw;
   z-index: 1;
 }
@@ -121,6 +123,10 @@ canvas {
   width: 160px;
   z-index: 2;
 }
+
+/* .switch #topCamContainer {
+  border-color: blue;
+} */
 
 #topCamContainer.right {
   left: calc(100vw - 260px);

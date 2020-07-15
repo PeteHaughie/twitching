@@ -34,9 +34,13 @@ window.addEventListener("load", function(){
 
   navigator.mediaDevices.enumerateDevices().catch(handleError);
 
-  function updateCanvas(canvas, video) {
+  function updateCanvas(canvas, video, alt) {
     setInterval(() => {
-      canvas.drawImage(video, 0, 0, video.width, video.height);
+      if (document.getElementById("container").classList.contains("switch")) {
+        canvas.drawImage(alt, 0, 0, video.width, video.height);
+      } else {
+        canvas.drawImage(video, 0, 0, video.width, video.height);
+      }
     }, 30);
   }
 
@@ -44,7 +48,7 @@ window.addEventListener("load", function(){
     window.stream = stream; // make stream available to console
     videoElement.srcObject = stream;
     videoElement.addEventListener('play', function(){
-      updateCanvas(videoContext, videoElement);
+      updateCanvas(videoContext, videoElement, camElement);
     });
     // Refresh button list in case labels have become available
     return navigator.mediaDevices.enumerateDevices();
@@ -54,7 +58,7 @@ window.addEventListener("load", function(){
     window.cam = stream; // make stream available to console
     camElement.srcObject = stream;
     camElement.addEventListener('play', function() {
-      updateCanvas(camContext, camElement);
+      updateCanvas(camContext, camElement, videoElement);
     });
     // Refresh button list in case labels have become available
     return navigator.mediaDevices.enumerateDevices();
@@ -121,60 +125,71 @@ window.addEventListener("load", function(){
 
   setInterval(function(){
     for (let i = 0; i < localStorage.length; i++) {
-      const el = localStorage.key(i); // "interstitial"
-      const element = document.getElementById(el); // <div id="interstitial"></div>
-      const props = JSON.parse(localStorage.getItem(el)); // {interstitial: {"opacity": 0}}
-      if (el == "videoSource") {
-        if (JSON.parse(localStorage.getItem(el)) != prevVideoSource) {
-          prevVideoSource = JSON.parse(localStorage.getItem(el));
-          startVideo();
+      const el = localStorage.key(i);
+
+      if (el == "switch") {
+        JSON.parse(localStorage.getItem(el)) == true ? document.getElementById("container").classList.add("switch") : document.getElementById("container").classList.remove("switch");
+      } else {
+        const element = document.getElementById(el);
+        const props = JSON.parse(localStorage.getItem(el));
+        if (el == "videoSource") {
+          if (JSON.parse(localStorage.getItem(el)) != prevVideoSource) {
+            prevVideoSource = JSON.parse(localStorage.getItem(el));
+            startVideo();
+          }
         }
+        if (el == "camSource") {
+          if (JSON.parse(localStorage.getItem(el)) != prevCamSource) {
+            prevCamSource = JSON.parse(localStorage.getItem(el));
+            startCam();
+          }
+        }
+        if (element && props) {
+          if (props.opacity)
+            element.classList.remove("invisible");
+          else
+            element.classList.add("invisible");
+  
+          if (props.style) {
+            const classes = element.classList;
+            for (let i = 0; i < classes.length; i++) {
+              if (classes[i] != "invisible") {
+                element.classList.remove(classes[i]);
+              }
+            }
+            element.classList.add(props.style);
+          }
+  
+          if (props.hposition) {
+            if (props.hposition == "left") {
+              element.classList.remove("right")
+            }
+            if (props.hposition == "right") {
+              element.classList.add("right")
+            }
+          }
+  
+          if (props.vposition) {
+            if (props.vposition == "top") {
+              element.classList.remove("bottom")
+            }
+            if (props.vposition == "bottom") {
+              element.classList.add("bottom")
+            }
+          }
+  
+          if (props.decoration) {
+            if (!element.classList.contains(props.decoration)) {
+              element.classList.add("invisible")
+              setTimeout(function() {
+                element.classList = "";
+              }, 300);
+              setTimeout(function() {
+                element.classList.add(props.decoration)
+              }, 300);
+            }
+          }
       }
-      if (el == "camSource") {
-        if (JSON.parse(localStorage.getItem(el)) != prevCamSource) {
-          prevCamSource = JSON.parse(localStorage.getItem(el));
-          startCam();
-        }
-      }
-      if (element && props) {
-        if (props.opacity)
-          element.classList.remove("invisible");
-        else
-          element.classList.add("invisible");
-
-        if (props.style) {
-          element.classList.add(props.style);
-        }
-
-        if (props.hposition) {
-          if (props.hposition == "left") {
-            element.classList.remove("right")
-          }
-          if (props.hposition == "right") {
-            element.classList.add("right")
-          }
-        }
-
-        if (props.vposition) {
-          if (props.vposition == "top") {
-            element.classList.remove("bottom")
-          }
-          if (props.vposition == "bottom") {
-            element.classList.add("bottom")
-          }
-        }
-
-        if (props.decoration) {
-          if (!element.classList.contains(props.decoration)) {
-            element.classList.add("invisible")
-            setTimeout(function() {
-              element.classList = "";
-            }, 300);
-            setTimeout(function() {
-              element.classList.add(props.decoration)
-            }, 300);
-          }
-        }
 
         // if (el == "topCamContainer" && props.width) {
         //   element.classList.add(props.width)
