@@ -9,3 +9,6 @@ My set-up is such that I merely want to see the 1080p output on my screen as I h
 Must be run as localhost or the WebRTC security protocols won't allow the cams to display and it will appear to be broken.
 
 It's also worth noting that there is no audio manipulation happening in the browser, you must route and mix your own audio outside of the compositor as I deem this out of scope.
+
+@TODO:
+Add chromakey to video sources with sliders.
