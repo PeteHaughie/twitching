@@ -11,8 +11,9 @@ Must be run as localhost or the WebRTC security protocols won't allow the cams t
 It's also worth noting that there is no audio manipulation happening in the browser, you must route and mix your own audio outside of the compositor as I deem this out of scope.
 
 @TODO:
-Add chromakey to video sources with sliders.
-Add websocket
-Add support for chat interaction (via websocket)
-Add support for peripheral control (via websocket)
-Add support for remote machine control (via websocket)
+
+* Add chromakey to video sources with sliders.
+* Add websocket
+* Add support for chat interaction (via websocket)
+* Add support for peripheral control (via websocket)
+* Add support for remote machine control (via websocket)
