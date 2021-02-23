@@ -12,3 +12,7 @@ It's also worth noting that there is no audio manipulation happening in the brow
 
 @TODO:
 Add chromakey to video sources with sliders.
+Add websocket
+Add support for chat interaction (via websocket)
+Add support for peripheral control (via websocket)
+Add support for remote machine control (via websocket)
