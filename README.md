@@ -13,7 +13,13 @@ It's also worth noting that there is no audio manipulation happening in the brow
 @TODO:
 
 * Add chromakey to video sources with sliders.
+
+## TO think about…
+
+If we add WebSockets the Twitcher won't be as portable as it currently is. If we *don't* add WebSockets it's unlikely we'll be able to interact with chat or add peripheral and remote machine control. If we can find a way of sending messages across a network from machine to machine without a server infrastructure then we'll go for that.
+
 * Add websocket
+* Move screen control to websockets
 * Add support for chat interaction (via websocket)
 * Add support for peripheral control (via websocket)
 * Add support for remote machine control (via websocket)
